@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series Temporais BCB - Consulta Dinamica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>
+            Consultar Series Temporais BCB
+            <span style="font-size: 0.9rem; background: #39738f; color: white; padding: 0.2rem 1rem; border-radius: 30px; margin-left: auto;">API SGS</span>
+        </h1>
+        <div class="subtitle">
+            Fonte: <strong>Banco Central do Brasil</strong> Digite o codigo da serie desejada
+        </div>
+
+        <!-- Area de consulta por codigo 
+        <div class="consulta-container">
+            <div class="input-group">
+                <div class="codigo-box">
+                    <label for="codigoSerie">Codigo SGS:</label>
+                    <input type="number" id="codigoSerie" placeholder="Ex: 188" value="" min="1" step="1">
+                </div>
+                <button class="buscar-btn" id="buscarBtn">?? Buscar serie</button>
+            </div>
+            
+        </div> -->
+
+        <!-- Area do filtro de datas -->
+        <div class="filtro-container">
+				<div class="codigo-box">
+                    <label for="codigoSerie">Codigo SGS:</label>
+                    <input type="number" id="codigoSerie" placeholder="Ex: 188" value="" min="1" step="1">
+                </div>
+            <div class="filtro-datas">
+                <div class="campo-data">
+                    <label for="dataInicio">DE</label>
+                    <input type="month" id="dataInicio">
+                </div>
+                <div class="campo-data">
+                    <label for="dataFim">ATE</label>
+                    <input type="month" id="dataFim">
+                </div>
+            </div>
+            <div class="filtro-acoes">
+                <button class="btn-filtro" id="aplicarFiltroBtn">Filtrar</button>
+                <button class="btn-filtro limpar" id="limparFiltroBtn">Limpar</button>
+				<button id="exportarCSVBtn" class="btn btn-success">Exportar CSV</button>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <div class="info-tag" id="registros-info">
+                Carregando indices diarios da TR...
+            </div>
+            <button class="refresh-btn" id="atualizarBtn">
+                Recarregar
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data (Mes/Ano)</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-corpo">
+                    <tr>
+                        <td colspan="2" class="loading">Buscando dados da API do Banco Central...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="dicas">
+            ?? Dica: Voce pode digitar qualquer codigo valido do SGS (Sistema Gerenciador de Series) do BCB. 
+            Exemplos: 1 (Selic), 433 (Dolar), 189 (INPC), 1619 (IGP-M).
+        </div>
+
+        <footer>
+            * Fonte: BCB/Dados Abertos ¡¤ SGS ¡¤ Os valores podem estar em percentual, indice ou R$ conforme a serie.
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
